@@ -23,6 +23,8 @@ public class searchEngineClass {
          webPageArray.append(page1);
          webPageArray.append(page2);
          webPageArray.append(page3);
+         System.out.println(webPageArray);
+         
         
     }
 }

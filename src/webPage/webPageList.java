@@ -94,6 +94,20 @@ public class webPageList<T extends Comparable<T>> implements LinkList<T> {
         return firstNode == null;
     }
 
+    public String toString()
+    {
+        int i=1;
+        String str="";
+        Node currentNode=firstNode;
+        while(currentNode!=null)
+        {
+            str+=(i)+"."+currentNode.data+"\n";
+            i++;
+            currentNode=currentNode.next;
+        }
+        return str;
+    }
+    
     class Node {
 
         T data;
