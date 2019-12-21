@@ -52,6 +52,14 @@ public class webPage implements Comparable<webPage>{
         return protal;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
   
 
   public webPage(String firstName) { // for testing *************** 
