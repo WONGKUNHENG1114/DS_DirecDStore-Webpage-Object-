@@ -10,9 +10,11 @@ package webPage;
  *
  * @author nakamurakaito
  */
-public class webPage implements Comparable<webPage> {
+public class webPage {
     private String url,title,ipAddress;
     private int protal;
+    private String description;
+    private boolean isBookMark;
     
     public webPage(){
         
@@ -24,10 +26,12 @@ public class webPage implements Comparable<webPage> {
         this.title = title;
         this.protal = protal;
     }
-
-    @Override
-    public int compareTo(webPage o) {
-        return url.compareTo(o.url);
+ public webPage(String url, String title,String ipAddress,String description){
+        this.description=description;
+        this.url = url;
+        this.ipAddress = ipAddress;
+        this.title = title;
+        isBookMark=false;
     }
 
     public String getUrl() {
@@ -45,4 +49,19 @@ public class webPage implements Comparable<webPage> {
     public int getProtal() {
         return protal;
     }
+    
+    
+    // KUN HENG METHOD
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isIsBookMark() {
+        return isBookMark;
+    }
+
+    public void setIsBookMark() {
+        this.isBookMark =true;
+    }
+    
 }
