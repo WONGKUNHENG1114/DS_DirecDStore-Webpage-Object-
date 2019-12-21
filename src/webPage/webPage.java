@@ -26,6 +26,8 @@ public class webPage {
         this.title = title;
         this.protal = protal;
     }
+    
+    //KUNHENG CONSTRUCTOR
  public webPage(String url, String title,String ipAddress,String description){
         this.description=description;
         this.url = url;
