@@ -10,7 +10,7 @@ package webPage;
  *
  * @author nakamurakaito
  */
-public class webPage {
+public class webPage implements Comparable<webPage>{
     private String url,title,ipAddress;
     private int protal;
     private String description;
@@ -29,11 +29,12 @@ public class webPage {
     
     //KUNHENG CONSTRUCTOR
  public webPage(String url, String title,String ipAddress,String description){
-        this.description=description;
+        
         this.url = url;
         this.ipAddress = ipAddress;
         this.title = title;
         isBookMark=false;
+        this.description=description;
     }
 
     public String getUrl() {
@@ -65,5 +66,16 @@ public class webPage {
     public void setIsBookMark() {
         this.isBookMark =true;
     }
+
+    @Override
+    public int compareTo(webPage page) {
+       return this.ipAddress.compareTo(page.ipAddress);
+    }
     
+    
+    public String toString()
+    {
+        return  "ipAddress:"+ipAddress+"\n"
+                +"Title:"+ title +"\n";
+    }
 }
