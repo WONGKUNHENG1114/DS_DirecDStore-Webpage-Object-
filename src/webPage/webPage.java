@@ -13,7 +13,7 @@ public class webPage implements Comparable<webPage>{
     private String first; 
     private String last;  
   
-    private String url,title,ipAddress;
+    private String url,title,ipAddress,date;
     private int protal;
     
     public webPage() {
@@ -25,6 +25,14 @@ public class webPage implements Comparable<webPage>{
         this.url = url;
         this.ipAddress = ipAddress;
         this.title = title;
+        this.protal = protal;
+    }
+    
+    public webPage(String title, String url,String ipAddress, String date){
+        this.url = url;
+        this.ipAddress = ipAddress;
+        this.title = title;
+        this.date = date;
         this.protal = protal;
     }
 
