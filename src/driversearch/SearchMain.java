@@ -45,10 +45,10 @@ public class SearchMain {
         
         Scanner scan = new Scanner(System.in);
         
-        //Display all webpage
-        System.out.println("All webpage: " + adt);
-        System.out.println("");
-        System.out.println("");
+//        //Display all webpage
+//        System.out.println(adt.allWebpage());
+//        System.out.println("");
+//        System.out.println("");
         
         //Display search result based on certain keyword
         System.out.print("Enter a keyword to search: ");
