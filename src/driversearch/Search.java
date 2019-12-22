@@ -115,6 +115,19 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
         return format();
     }
     
+    public String searchByUrl(String url){
+        clear();
+        for(webPage wp:array){
+            if(wp != null){
+                if(url == wp.getUrl()){
+                    result[index] = wp;
+                    index++;
+                }
+            }
+        }
+        return format();
+    }
+    
     private boolean isFull(){
         if(size == array.length)
             return true;
