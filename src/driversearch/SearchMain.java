@@ -11,7 +11,6 @@ import java.util.Scanner;
  * @author Acer
  */
 public class SearchMain {
-    
     public static void main(String[] args) {
         // TODO code application logic here
         //Instantiate webPage object
@@ -67,6 +66,10 @@ public class SearchMain {
         //Display search result based on certain date
         System.out.print("Enter a date to search (yyyy/mm/dd): ");
         String date = scan.nextLine();
+        while(checkFormat(date) == false){
+            System.out.print("Please re-enter the date according to the format: yyyy/mm/dd: ");
+            date = scan.nextLine();
+        }
         System.out.println(adt.searchCertainDate(date));
         System.out.println("");
         System.out.println("");
@@ -74,6 +77,10 @@ public class SearchMain {
         //Display search result before certain date 
         System.out.print("Search before certain date (yyyy/mm/dd): ");
         date = scan.nextLine();
+        while(checkFormat(date) == false){
+            System.out.print("Please re-enter the date according to the format: yyyy/mm/dd: ");
+            date = scan.nextLine();
+        }
         System.out.println(adt.searchBefore(date));
         System.out.println("");
         System.out.println("");
@@ -81,6 +88,10 @@ public class SearchMain {
         //Display search result after certain date
         System.out.print("Search after certain date (yyyy/mm/dd): ");
         date = scan.nextLine();
+        while(checkFormat(date) == false){
+            System.out.print("Please re-enter the date according to the format: yyyy/mm/dd: ");
+            date = scan.nextLine();
+        }
         System.out.println(adt.searchAfter(date));
         System.out.println("");
         System.out.println("");
@@ -89,8 +100,16 @@ public class SearchMain {
         System.out.println("Search between certain dates: ");
         System.out.print("Enter first date (yyyy/mm/dd): ");
         String date1 = scan.nextLine();
+        while(checkFormat(date1) == false){
+            System.out.print("Please re-enter first date according to the format: yyyy/mm/dd: ");
+            date1 = scan.nextLine();
+        }
         System.out.print("Enter second date (yyyy/mm/dd): ");
         String date2 = scan.nextLine();
+        while(checkFormat(date2) == false){
+            System.out.print("Please re-enter second date according to the format: yyyy/mm/dd: ");
+            date2 = scan.nextLine();
+        }
         System.out.println(adt.searchBetweenDate(date1, date2));
         System.out.println("");
         System.out.println("");
@@ -101,5 +120,12 @@ public class SearchMain {
         System.out.println(adt.searchByUrl(url));
         System.out.println("");
         System.out.println("");
+    }
+    
+    private static boolean checkFormat(String date){
+        if(!date.matches("\\d\\d\\d\\d/\\d\\d/\\d\\d"))
+            return false;
+        else
+            return true;
     }
 }
