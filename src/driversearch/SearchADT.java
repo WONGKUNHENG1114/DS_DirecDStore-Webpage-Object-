@@ -9,10 +9,10 @@ package driversearch;
  *
  * @author Acer
  */
-public interface SearchADT<webPageS>{
+public interface SearchADT<webPage>{
     public void add(webPage wp);
     
-    //public webPage[] search(String title);
+    public String searchInclusion(String title);
     /*
     description:
     precondition:
@@ -20,7 +20,7 @@ public interface SearchADT<webPageS>{
     result:
     */
     
-    //public webPage searchCertainDate(String date);
+    public String searchExclusion(String exclude);
     /*
     description:
     precondition:
@@ -28,7 +28,7 @@ public interface SearchADT<webPageS>{
     result:
     */
     
-    //public T searchBefore(String date);
+    public String searchCertainDate(String date);
     /*
     description:
     precondition:
@@ -36,7 +36,7 @@ public interface SearchADT<webPageS>{
     result:
     */
     
-    //public T searchAfter(String date);
+    public String searchBefore(String date);
     /*
     description:
     precondition:
@@ -44,7 +44,7 @@ public interface SearchADT<webPageS>{
     result:
     */
     
-    //public T searchBetweenDate(String date1, String date2);
+    public String searchAfter(String date);
     /*
     description:
     precondition:
@@ -52,7 +52,7 @@ public interface SearchADT<webPageS>{
     result:
     */
     
-    //public T searchExclusion(String exclude);
+    public String searchBetweenDate(String date1, String date2);
     /*
     description:
     precondition:
