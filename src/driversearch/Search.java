@@ -185,6 +185,7 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
         result = new webPage[10];
     }
     
+    
     public String toString(){
         String str = "";
         if(result[0] == null){
