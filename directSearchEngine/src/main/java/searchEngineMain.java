@@ -40,6 +40,7 @@ public class searchEngineMain {
                 urlProtocol = new URL("https://" + url); 
                 String URLProtocol = urlProtocol.getProtocol();
                 searchEngineClass s1 = new searchEngineClass(url,title,ipAddress.replaceAll(url + "/",""),URLProtocol);
+                System.out.println(s1.getPortal());
                 glist.add(s1);
             } catch (MalformedURLException ex) {
                 Logger.getLogger(searchEngineClass.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,13 +48,18 @@ public class searchEngineMain {
             System.out.println("Do you to continue? ");
             choice = scan.next();
         }while(choice.equalsIgnoreCase("Y"));
-        System.out.println("Enter Title u wanted to search! ");
-        String name = scan.next();
-        for(int i = 0; i < glist.Size(); i++){
-          if(name.compareToIgnoreCase(glist.getItem(i).getTitle()) > 0){
-             System.out.println(glist.getItem(i).getCode());
-             System.out.println(glist.getItem(i).getTitle());
-          }
+        System.out.println("Do your wanted to sorting according ");
+        System.out.println("1. Accoding ");
+        System.out.println("2. Exit ");
+        int selection = scan.nextInt();
+        switch(selection){
+            case 1:
+                for(int i = 0; i < glist.Size(); i++){
+                   System.out.println(glist.getItem(i).getCode());
+                   System.out.println(glist.getItem(i).getTitle());
+                }
+                break;
+            case 2:
         }
         //System.out.println(webPage.getItem(index).toString());
         System.out.println(glist);
