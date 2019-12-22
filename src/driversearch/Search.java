@@ -31,6 +31,20 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
         }   
     }
     
+    public String allWebpage(){
+        clear();
+        for(webPage wp:array){
+            if(wp != null){
+                if(isFull(result, index)){
+                        result = expandArray(result);
+                }
+                result[index] = wp;
+                index++;
+            }
+        }
+        return toString();
+    }
+    
     public String searchInclusion(String include){
         clear();
         if(include != null){
@@ -46,7 +60,7 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
                 }
             }
         }
-        return format();
+        return toString();
     }
     
     public String searchExclusion(String exclude){
@@ -64,7 +78,7 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
                 }
             }
         }
-        return format();
+        return toString();
     }
     
     public String searchCertainDate(String date){
@@ -80,7 +94,7 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
                 }
             }
         }
-        return format();
+        return toString();
     }
     
     
@@ -97,7 +111,7 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
                 }
             }
         }
-        return format();
+        return toString();
     }
     
     
@@ -114,7 +128,7 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
                 }
             }
         }
-        return format();
+        return toString();
     }
     
     
@@ -131,7 +145,7 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
                 }
             }
         }
-        return format();
+        return toString();
     }
     
     public String searchByUrl(String url){
@@ -147,7 +161,7 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
                 }
             }
         }
-        return format();
+        return toString();
     }
     
     private boolean isFull(webPage[] ar, int size){
@@ -166,7 +180,12 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
         return ar;
     }
     
-    private String format(){
+    private void clear(){
+        index = 0;
+        result = new webPage[10];
+    }
+    
+    public String toString(){
         String str = "";
         if(result[0] == null){
             str = "No result match.";
@@ -181,23 +200,6 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
             str += "\n--------------------------------------------------------------";
         }
         
-        return str;
-    }
-    
-    private void clear(){
-        index = 0;
-        result = new webPage[10];
-    }
-    
-    public String toString(){
-        String str = "";
-        str += "\nTitle\t\t\tUrl\t\t\tDate";
-        str += "\n--------------------------------------------------------------";
-        for(webPage wp:array){
-            if(wp != null)
-                str += "\n|" + wp.getTitle() + "|\t\t" + wp.getUrl() + "\t\t" + wp.getDate();
-        }
-        str += "\n--------------------------------------------------------------";
         return str;
     }
 }
