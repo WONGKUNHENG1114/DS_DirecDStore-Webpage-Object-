@@ -11,6 +11,20 @@ package driversearch;
  */
 public interface SearchADT<webPage>{
     public void add(webPage wp);
+    /*
+    description:
+    precondition:
+    postcondition:
+    result:
+    */
+    
+    public String allWebpage();
+    /*
+    description:
+    precondition:
+    postcondition:
+    result:
+    */
     
     public String searchInclusion(String title);
     /*
