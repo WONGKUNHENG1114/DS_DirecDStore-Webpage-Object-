@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package driversearch;
-
+import java.util.Scanner;
 
 /**
  *
@@ -43,38 +43,63 @@ public class SearchMain {
         adt.add(wp11);
         adt.add(wp12);
         
+        Scanner scan = new Scanner(System.in);
         
         //Display all webpage
-        System.out.println("All webpage: " + adt);
-        System.out.println("");
-        System.out.println("");
+//        System.out.println("All webpage: " + adt);
+//        System.out.println("");
+//        System.out.println("");
         
         //Display search result based on certain keyword
-        System.out.println("Search result based on certain keyword: " + adt.searchInclusion("and"));
+        System.out.print("Enter a keyword to search: ");
+        String keywordInclude = scan.nextLine();
+        System.out.println(adt.searchInclusion(keywordInclude));
         System.out.println("");
         System.out.println("");
         
         //Display search result that excluding certain keyword
-        System.out.println("Search result that excluding certain keyword: " + adt.searchExclusion("and"));
+        System.out.print("Enter a keyword to exclude in search: ");
+        String keywordExclude = scan.nextLine();
+        System.out.println(adt.searchExclusion(keywordExclude));
         System.out.println("");
         System.out.println("");
         
         //Display search result based on certain date
-        System.out.println("Search result based on certain date: " + adt.searchCertainDate("2019/02/01"));
+        System.out.print("Enter a date to search (yyyy/mm/dd): ");
+        String date = scan.nextLine();
+        System.out.println(adt.searchCertainDate(date));
         System.out.println("");
         System.out.println("");
         
         //Display search result before certain date 
-        System.out.println("Search result before certain date: " + adt.searchBefore("2019/04/28"));
+        System.out.print("Search before certain date (yyyy/mm/dd): ");
+        date = scan.nextLine();
+        System.out.println(adt.searchBefore(date));
         System.out.println("");
         System.out.println("");
         
         //Display search result after certain date
-        System.out.println("Search result after certain date: " + adt.searchAfter("2019/04/28"));
+        System.out.print("Search after certain date (yyyy/mm/dd): ");
+        date = scan.nextLine();
+        System.out.println(adt.searchAfter(date));
         System.out.println("");
         System.out.println("");
         
         //Display search result between certain dates
-        System.out.println("Search result between certain dates: " + adt.searchBetweenDate("2019/02/15", "2019/07/15"));
+        System.out.println("Search between certain dates: ");
+        System.out.print("Enter first date (yyyy/mm/dd): ");
+        String date1 = scan.nextLine();
+        System.out.print("Enter second date (yyyy/mm/dd): ");
+        String date2 = scan.nextLine();
+        System.out.println(adt.searchBetweenDate(date1, date2));
+        System.out.println("");
+        System.out.println("");
+        
+        //Display search result based on url
+        System.out.print("Enter an url: ");
+        String url = scan.nextLine();
+        System.out.println(adt.searchByUrl(url));
+        System.out.println("");
+        System.out.println("");
     }
 }
