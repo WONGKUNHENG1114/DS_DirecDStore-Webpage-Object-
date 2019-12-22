@@ -102,9 +102,13 @@ public class AlgorithmTreeSearch {
         System.out.println();
         finish_time = System.currentTimeMillis();
         System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        System.out.println();
+        System.out.println();
         
         //Add the data to the tree
-        start_time = System.currentTimeMillis();
+        double start_time2,finish_time2;
+        start_time2 = System.currentTimeMillis();
+        System.out.print("Search for Webpages\n================================\n");
         do {
             System.out.print("Enter the webpage URL: ");
             String webpage = input.nextLine();
@@ -125,8 +129,10 @@ public class AlgorithmTreeSearch {
         } while (anymore == 'y' || anymore == 'Y');
         
         System.out.println();
-        finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        finish_time2 = System.currentTimeMillis();
+        System.out.println("Total Time Taken: " + (double)(finish_time2 - start_time2)/ 1000  + " seconds");     
+        System.out.println("Total Overall Time: " + ((double)(double)(finish_time - start_time)/ 1000 + (double)(finish_time2 - start_time2)/ 1000)  + " seconds");
+        
     }
 
 }

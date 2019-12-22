@@ -56,7 +56,7 @@ public class TreeSearch<T extends Comparable> implements TreeSearchADT<T> {
     }
     
     public T contains(String entry) {
-        if(getEntry(entry)!=null)
+        if(getEntry(entry)!= null)
             return getEntry(entry);
         else
             return null;
@@ -72,15 +72,16 @@ public class TreeSearch<T extends Comparable> implements TreeSearchADT<T> {
         if (rootNode != null) {
           SearchEngineClass rootEntry = (SearchEngineClass) rootNode.data;
 
-          if (rootEntry.getURL().contains(entry)) {
+          if (rootEntry.getURL().contains(entry)) {             
+              result = rootNode.data;
               
-            result = rootNode.data;
           } else if (rootEntry.getURL().compareTo(entry) > 0) {
               int found = rootEntry.getURL().compareTo(entry);
-            result = findEntry(rootNode.left, entry);
+              result = findEntry(rootNode.left, entry);
+              
           } else {
               int found = rootEntry.getURL().compareTo(entry);
-            result = findEntry(rootNode.right, entry);
+              result = findEntry(rootNode.right, entry);
           }
        }
         return result;
@@ -105,9 +106,6 @@ public class TreeSearch<T extends Comparable> implements TreeSearchADT<T> {
           this.right = right;
         }
 
-//        public boolean isLeaf() {
-//          return (left == null) && (right == null);
-//        }
 
         public T getData() {
             return data;
