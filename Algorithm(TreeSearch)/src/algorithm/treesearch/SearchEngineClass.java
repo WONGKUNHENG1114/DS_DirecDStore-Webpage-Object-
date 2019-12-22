@@ -14,39 +14,16 @@ package algorithm.treesearch;
  */
 public class SearchEngineClass implements Comparable<SearchEngineClass>{
     private String URL, IpAddress, Protocol;
-   // private Date createdDate,updadteDate;
     
     public SearchEngineClass(){
         
     }
-    
-//    public SearchEngineClass(String URL, String IpAddress, Date createdDate,Date updatedDate){
-//        this.URL = URL;
-//        this.IpAddress = IpAddress;
-//        this.createdDate = createdDate;
-//        this.updadteDate = updatedDate;
-//    }
-//    
+
     public SearchEngineClass(String URL, String IpAddress, String Protocol){
         this.URL = URL;
         this.IpAddress = IpAddress;
         this.Protocol = Protocol;
     }
-    
-    
-//    public Date getCreatedDate(){
-//        return createdDate;
-//    }
-    
-    
-//    public Date getUpdatedDate(){
-//        return updadteDate;
-//    }
-//
-//    public Date getUpdadteDate() {
-//        return updadteDate;
-//    }
-
     
     public void setURL(String URL){
         this.URL = URL;
@@ -80,11 +57,5 @@ public class SearchEngineClass implements Comparable<SearchEngineClass>{
     public String toString() {
         return "\nURL: " + URL + "\nIP Address: " + IpAddress + "\nProtocol: " + Protocol + "\n";
     }
-
-//    @Override
-//    public String toString() {
-//        return "\nURL: " + URL + "\nIp Address: " + IpAddress + "\nProtocol=" + Protocol + "\nCreated Date=" + createdDate + ", updadteDate=" + updadteDate + '}';
-//    }
-    
     
 }
