@@ -13,7 +13,7 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
     private webPage[] array;
     private webPage[] result;
     private int size;
-    int index = 0;
+    private int index;
     
     public Search(){
         array = new webPage[10];
@@ -23,25 +23,27 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
     
     public void add(webPage wp){
         if(wp != null){
-            if(isFull()){
-                expandArray();
+            if(isFull(array, size)){
+                array = expandArray(array);
             }    
             array[size] = wp;
             size++;
         }   
     }
     
-    public String searchInclusion(String title){
+    public String searchInclusion(String include){
         clear();
-        if(title != null){
+        if(include != null){
             for(webPage wp:array){
                 if(wp != null){
-                    if(wp.getTitle().toLowerCase().contains(title)){
+                    if(wp.getTitle().toLowerCase().contains(include)){
+                        if(isFull(result, index)){
+                            result = expandArray(result);
+                        }
                         result[index] = wp;
                         index++;
-                    } 
+                    }
                 }
-                
             }
         }
         return format();
@@ -49,11 +51,16 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
     
     public String searchExclusion(String exclude){
         clear();
-        for(webPage wp:array){
-            if(wp != null){
-                if(!wp.getTitle().toLowerCase().contains(exclude)){
-                    result[index] = wp;
-                    index++;
+        if(exclude != null){
+            for(webPage wp:array){
+                if(wp != null){
+                    if(!wp.getTitle().toLowerCase().contains(exclude)){
+                        if(isFull(result, index)){
+                            result = expandArray(result);
+                        }
+                        result[index] = wp;
+                        index++;
+                    }
                 }
             }
         }
@@ -65,6 +72,9 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
         for(webPage wp:array){
             if(wp != null){
                 if(wp.getDate().equals(date)){
+                    if(isFull(result, index)){
+                        result = expandArray(result);
+                    }
                     result[index] = wp;
                     index++;
                 }
@@ -79,6 +89,9 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
         for(webPage wp:array){
             if(wp != null){
                 if(wp.getDate().compareTo(date) < 0){
+                    if(isFull(result, index)){
+                        result = expandArray(result);
+                    }
                     result[index] = wp;
                     index++;
                 }
@@ -93,6 +106,9 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
         for(webPage wp:array){
             if(wp != null){
                 if(wp.getDate().compareTo(date) > 0){
+                    if(isFull(result, index)){
+                        result = expandArray(result);
+                    }
                     result[index] = wp;
                     index++;
                 }
@@ -107,6 +123,9 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
         for(webPage wp:array){
             if(wp != null){
                 if(wp.getDate().compareTo(date1) > 0 && wp.getDate().compareTo(date2) < 0){
+                    if(isFull(result, index)){
+                        result = expandArray(result);
+                    }
                     result[index] = wp;
                     index++;
                 }
@@ -120,6 +139,9 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
         for(webPage wp:array){
             if(wp != null){
                 if(url == wp.getUrl()){
+                    if(isFull(result, index)){
+                        result = expandArray(result);
+                    }
                     result[index] = wp;
                     index++;
                 }
@@ -128,30 +150,37 @@ public class Search<T extends Comparable<webPage>> implements SearchADT<webPage>
         return format();
     }
     
-    private boolean isFull(){
-        if(size == array.length)
+    private boolean isFull(webPage[] ar, int size){
+        if(size == ar.length)
             return true;
         else
             return false;
     }
     
-    private void expandArray(){
-        webPage[] oldArray = array;
-        array = new webPage[oldArray.length * 2];
+    private webPage[] expandArray(webPage[] ar){
+        webPage[] oldArray = ar;
+        ar = new webPage[oldArray.length * 2];
         for(int i=0; i<oldArray.length; i++){
-            array[i] = oldArray[i];
+            ar[i] = oldArray[i];
         }
+        return ar;
     }
     
     private String format(){
         String str = "";
-        str += "\nTitle\t\t\tUrl\t\t\tDate";
-        str += "\n--------------------------------------------------------------";
-        for(webPage wp:result){
-            if(wp != null)
-                str += "\n|" + wp.getTitle() + "|\t\t" + wp.getUrl() + "\t\t" + wp.getDate();
+        if(result[0] == null){
+            str = "No result match.";
         }
-        str += "\n--------------------------------------------------------------";
+        else{
+            str += "\nTitle\t\t\tUrl\t\t\tDate";
+            str += "\n--------------------------------------------------------------";
+            for(webPage wp:result){
+                if(wp != null)
+                    str += "\n|" + wp.getTitle() + "|\t\t" + wp.getUrl() + "\t\t" + wp.getDate();
+            }
+            str += "\n--------------------------------------------------------------";
+        }
+        
         return str;
     }
     
