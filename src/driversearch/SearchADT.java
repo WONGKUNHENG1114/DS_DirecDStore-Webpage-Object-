@@ -60,4 +60,11 @@ public interface SearchADT<webPage>{
     result:
     */
     
+    public String searchByUrl(String url);
+    /*
+    description:
+    precondition:
+    postcondition:
+    result:
+    */
 }
