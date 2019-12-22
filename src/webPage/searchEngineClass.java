@@ -15,16 +15,23 @@ public class searchEngineClass {
     {
         //String url, String title,String ipAddress,String description
         LinkList<webPage> webPageArray=new webPageList();
-        webPage page=new webPage("facebook.com","myBro","192.168.1.1","videodeath");
-        webPage page1=new webPage("youtube.com","youtubeProduct","192.168.1.11","videodeath");
-        webPage page2=new webPage("fragile.com","fargileProduct","192.168.1.12","videodeath");
-        webPage page3=new webPage("Jacup.com","JacupProduct","192.168.1.13","videodeath");
-         webPageArray.append(page);
-         webPageArray.append(page1);
-         webPageArray.append(page2);
-         webPageArray.append(page3);
+        webPage storeLocation=new webPage("Kajang.com","DirectDKajang","192.168.1.11","videodeath");
+        webPage storeLocation1=new webPage("Kuantan.com","DirectDKuantan","192.168.1.12","videodeath");
+        webPage storeLocation2=new webPage("ShahAlam.com","DirectDShahAlam","192.168.1.12","videodeath");
+        webPage storeLocation3=new webPage("Klang.com","DirectDKlang","192.168.1.10","videodeath");
+        webPage storeLocation4=new webPage("Puchong.com","DirectDPuchong","192.168.1.27","videodeath");
+         webPageArray.insert(storeLocation);
+         webPageArray.insert(storeLocation1);
+         webPageArray.insert(storeLocation2);
+         webPageArray.insert(storeLocation3);
+         webPageArray.insert(storeLocation4);
+         webPageArray.removeFirst();
+         webPageArray.removeLast();
+         webPageArray.removeLast();
+         webPageArray.removeLast();
+         webPageArray.removeLast();
          System.out.println(webPageArray);
-         
+         System.out.println();
         
     }
 }

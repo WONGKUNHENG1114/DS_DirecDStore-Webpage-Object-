@@ -25,54 +25,114 @@ public class webPageList<T extends Comparable<T>> implements LinkList<T> {
                 firstNode = newNode;
                 lastNode = newNode;
             } else {
-
-                if (data instanceof webPage) {
-                    if (data.compareTo(firstNode.data) < 0) {
-                 
-                        newNode.next = firstNode;
-                        firstNode = newNode;
-                               
-
-                    } else {
-                        Node currentNode = firstNode;
-                        Node previousNode = null;
-                        while (currentNode != null && data.compareTo(currentNode.data) > 0) {
-                            
-                            previousNode = currentNode;
-                            if (currentNode.next == null) {
-                                lastNode = newNode;
-                            }
-                            currentNode = currentNode.next;
-                        }
-                        previousNode.next = newNode;
-                        newNode.next = currentNode;
-                    }
-
+                    
+                if (size == 1) {
+                    firstNode.next = newNode;
                 }
-//                if (size == 1) {
-//                    firstNode.next = newNode;
-//                }
-//                lastNode.next = newNode;
-//                lastNode = newNode;
+                lastNode.next = newNode;
+                lastNode = newNode;
             }
             size++;
         }
 
     }
 
+    private void sortIpAddress()
+    {
+//        if (data.compareTo(firstNode.data) < 0) {
+//                 
+//                        newNode.next = firstNode;
+//                        firstNode = newNode;
+//                               
+//
+//                    } else {
+//                        Node currentNode = firstNode;
+//                        Node previousNode = null;
+//                        while (currentNode != null && data.compareTo(currentNode.data) > 0) {
+//                            
+//                            previousNode = currentNode;
+//                            if (currentNode.next == null) {
+//                                lastNode = newNode;
+//                            }
+//                            currentNode = currentNode.next;
+//                        }
+//                        previousNode.next = newNode;
+//                        newNode.next = currentNode;
+//                    }
+    }
+    
     @Override
     public void insert(T data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         Node newNode = new Node(data);
+        Node temp = new Node();
+        if (isEmpty()) {
+            firstNode = newNode;
+            lastNode = newNode;
+        } else {
+            newNode.next=firstNode;
+//            temp=firstNode.next;
+            firstNode=newNode;
+//            temp.next = firstNode;
+//            temp = firstNode;
+//            firstNode = null;
+//            firstNode = newNode;
+//            firstNode.next = temp;
+
+        }
+        size++;
+        temp = null;
     }
 
     @Override
     public T removeFirst() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        T item = null;
+        
+        if (!isEmpty()) {
+
+            if (firstNode == lastNode) {
+                firstNode = null;
+                lastNode = null;
+            } else {
+                item = firstNode.data;
+                firstNode = firstNode.next;
+
+            }
+
+        }
+        size--;
+        return item;
     }
 
     @Override
     public T removeLast() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        T item = null;
+        Node currentNode=firstNode;
+        if (!isEmpty()) {
+
+            if (firstNode == lastNode) {
+                firstNode = null;
+                lastNode = null;
+            } else {
+              
+                while (currentNode.next != lastNode) {
+                    currentNode = currentNode.next;
+                }
+
+                item = lastNode.data;
+                currentNode.next = null;
+                lastNode = currentNode;
+
+                if (firstNode == lastNode) {
+                    firstNode.next = null;
+                }
+
+            }
+
+        }
+
+        currentNode = null;
+        size--;
+        return item;
     }
 
     @Override
@@ -82,12 +142,13 @@ public class webPageList<T extends Comparable<T>> implements LinkList<T> {
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      firstNode=null;
+      lastNode=null;
     }
 
     @Override
     public int Size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return size+1;
     }
 
     boolean isEmpty() {

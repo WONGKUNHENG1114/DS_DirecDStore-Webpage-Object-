@@ -15,7 +15,7 @@ public class webPage implements Comparable<webPage>{
     private int protal;
     private String description;
     private boolean isBookMark;
-    
+    private static int visitTime;
     public webPage(){
         
     }
