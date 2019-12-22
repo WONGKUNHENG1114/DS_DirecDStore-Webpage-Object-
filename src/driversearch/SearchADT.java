@@ -26,7 +26,7 @@ public interface SearchADT<webPage>{
     result:
     */
     
-    public String searchInclusion(String title);
+    public String searchInclusion(String include);
     /*
     description:
     precondition:
