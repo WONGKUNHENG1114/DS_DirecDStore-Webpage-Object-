@@ -11,7 +11,7 @@ package algorithm.treesearch;
  * @author Chris KMK
  */
 public interface TreeSearchADT<T> {
-    public T add(T newEntry); 
+    public T add(T value); 
     /*
         Description: to add data to the tree(node)
         Pre-condition: data is not null
@@ -28,7 +28,7 @@ public interface TreeSearchADT<T> {
         Return: return true if the data(node) is empty, or else return false if is not empty
     */
     
-    public T contains(String entry);
+    public T contains(String value);
     /*
         Description: to search for a specific data(node) in the tree
         Pre-condition: data(node) is not null
@@ -36,7 +36,7 @@ public interface TreeSearchADT<T> {
         Return: return data(T) if the data is matched, or return false if not found
     */
     
-    public T getEntry(String entry);
+    public T getEntry(String value);
     /*
         Description: to retrieve a specific data(node) in the tree
         Pre-condition: data(node) is not empty

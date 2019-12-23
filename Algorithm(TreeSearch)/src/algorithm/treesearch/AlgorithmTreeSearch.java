@@ -43,7 +43,6 @@ public class AlgorithmTreeSearch {
         SearchEngineClass s19 = new SearchEngineClass("www.outlook.com", "192.162.88.8","HTTPS");
         SearchEngineClass s20 = new SearchEngineClass("www.sougou.com", "192.121.40.11","HTTP");
 
-        //BST1.add(s1);
         BST1.add(s2);
         BST1.add(s3);
         BST1.add(s4);
@@ -65,7 +64,6 @@ public class AlgorithmTreeSearch {
         BST1.add(s20);              
       
         System.out.print("List of Webpages\n================================");
-        //System.out.print(s1);
         System.out.print(s2);
         System.out.print(s3);
         System.out.print(s4);
@@ -85,13 +83,15 @@ public class AlgorithmTreeSearch {
         System.out.print(s18);
         System.out.print(s19);
         System.out.print(s20); 
-
-        //Search for the webpages
+        System.out.println();
+        
+         //Search for the webpages
         double start_time,finish_time;
-        start_time = System.currentTimeMillis();
+        System.out.print("Search for Webpages\n================================\n");
         do {
             System.out.print("Enter the website which you want to looking for: ");
             String keyword = input.nextLine();
+            start_time = System.currentTimeMillis();
             System.out.println("\nLooking for this website: " + BST1.contains(keyword));
             
             System.out.print("Key in anymore?(Y/N): ");
@@ -99,16 +99,15 @@ public class AlgorithmTreeSearch {
             input.nextLine();
 
         } while (anymore == 'y' || anymore == 'Y');
-        System.out.println();
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");        
+        System.out.println();
         System.out.println();
         System.out.println();
         
+        
         //Add the data to the tree
-        double start_time2,finish_time2;
-        start_time2 = System.currentTimeMillis();
-        System.out.print("Search for Webpages\n================================\n");
+        double start_time2,finish_time2;    
         do {
             System.out.print("Enter the webpage URL: ");
             String webpage = input.nextLine();
@@ -117,7 +116,7 @@ public class AlgorithmTreeSearch {
             
             System.out.print("Enter the protocol for webpage: ");
             String protocol = input.nextLine().toUpperCase();
-  
+            start_time2 = System.currentTimeMillis();
             SearchEngineClass s1 = new SearchEngineClass(webpage,ipaddress,protocol);
             BST1.add(s1);
             System.out.println(s1);
@@ -127,12 +126,11 @@ public class AlgorithmTreeSearch {
             input.nextLine();
             
         } while (anymore == 'y' || anymore == 'Y');
-        
         System.out.println();
         finish_time2 = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time2 - start_time2)/ 1000  + " seconds");     
+        System.out.println("Total Time Taken: " + (double)(finish_time2 - start_time2)/ 1000  + " seconds");
         System.out.println("Total Overall Time: " + ((double)(double)(finish_time - start_time)/ 1000 + (double)(finish_time2 - start_time2)/ 1000)  + " seconds");
-        
+
     }
 
 }

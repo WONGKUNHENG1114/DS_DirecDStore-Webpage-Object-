@@ -20,71 +20,71 @@ public class TreeSearch<T extends Comparable> implements TreeSearchADT<T> {
        return root == null;
     }
     
-    public T add(T newEntry) {
+    public T add(T value) {
         T result = null;
 
         if (isEmpty()) {
-          root = new Node(newEntry);
+          root = new Node(value);
         } else {
-          result = addEntry(root, newEntry);
+          result = addValue(root, value);
         }
 
         return result;
   }
     
-    public T addEntry(Node root, T newEntry){
+    public T addValue(Node root, T newValue){
         T result = null;
-        int comparison = newEntry.compareTo(root.data);
+        int comparison = newValue.compareTo(root.data);
 
         if (comparison == 0) {						
           result = root.data;
-          root.data = newEntry;
+          root.data = newValue;
         } else if (comparison < 0) {		
           if (root.left != null) {
-            result = addEntry(root.left, newEntry);
+            result = addValue(root.left, newValue);
           } else {
-            root.left = new Node(newEntry);
+            root.left = new Node(newValue);
           }
-        } else {														// newEntry > entry in root
+        } else {
           if (root.right != null) {
-            result = addEntry(root.right, newEntry);
+            result = addValue(root.right, newValue);
           } else {
-            root.right = new Node(newEntry);
+            root.right = new Node(newValue);
           }
         }
         return result;
     }
     
-    public T contains(String entry) {
-        if(getEntry(entry)!= null)
-            return getEntry(entry);
+    public T contains(String value) {
+        if(getEntry(value)!= null)
+            return getEntry(value);
         else
             return null;
     }
 
-    public T getEntry(String entry) {
-        return findEntry(root, entry);
+    public T getEntry(String value) {
+        return findEntry(root, value);
     }
 
-    private T findEntry(Node rootNode, String entry) {
+    private T findEntry(Node rootNode, String value) {
         T result = null;
 
         if (rootNode != null) {
           SearchEngineClass rootEntry = (SearchEngineClass) rootNode.data;
 
-          if (rootEntry.getURL().contains(entry)) {             
+          if (rootEntry.getURL().contains(value)) {             
               result = rootNode.data;
               
-          } else if (rootEntry.getURL().compareTo(entry) > 0) {
-              int found = rootEntry.getURL().compareTo(entry);
-              result = findEntry(rootNode.left, entry);
+          } else if (rootEntry.getURL().compareTo(value) > 0) {
+              int found = rootEntry.getURL().compareTo(value);
+              result = findEntry(rootNode.left, value);
               
           } else {
-              int found = rootEntry.getURL().compareTo(entry);
-              result = findEntry(rootNode.right, entry);
+              int found = rootEntry.getURL().compareTo(value);
+              result = findEntry(rootNode.right, value);
           }
        }
-        return result;
+       return result;
     }
      
     public class Node {
@@ -130,7 +130,5 @@ public class TreeSearch<T extends Comparable> implements TreeSearchADT<T> {
         public void setRight(Node right) {
             this.right = right;
         }
-      }
-    
-    
+      }  
 }
