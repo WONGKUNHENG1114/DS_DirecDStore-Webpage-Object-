@@ -49,19 +49,26 @@ public class SearchMain {
 //        System.out.println("");
 //        System.out.println("");
         
-        //Display search result based on certain keyword
+        double start_time,finish_time;
         System.out.print("Enter a keyword to search: ");
         String keywordInclude = scan.nextLine();
+        start_time = System.currentTimeMillis();
         System.out.println(adt.searchInclusion(keywordInclude));
-        System.out.println("");
-        System.out.println("");
+        finish_time = System.currentTimeMillis();
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        System.out.println();
+        System.out.println();
         
         //Display search result that excluding certain keyword
         System.out.print("Enter a keyword to exclude in search: ");
         String keywordExclude = scan.nextLine();
+        start_time = System.currentTimeMillis();
         System.out.println(adt.searchExclusion(keywordExclude));
+        finish_time = System.currentTimeMillis();
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
         System.out.println("");
         System.out.println("");
+        
         
         //Display search result based on certain date
         System.out.print("Enter a date to search (yyyy/mm/dd): ");
@@ -70,9 +77,13 @@ public class SearchMain {
             System.out.print("Please re-enter the date according to the format: yyyy/mm/dd: ");
             date = scan.nextLine();
         }
+        start_time = System.currentTimeMillis();
         System.out.println(adt.searchCertainDate(date));
+        finish_time = System.currentTimeMillis();
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
         System.out.println("");
         System.out.println("");
+        
         
         //Display search result before certain date 
         System.out.print("Search before certain date (yyyy/mm/dd): ");
@@ -81,9 +92,13 @@ public class SearchMain {
             System.out.print("Please re-enter the date according to the format: yyyy/mm/dd: ");
             date = scan.nextLine();
         }
+        start_time = System.currentTimeMillis();
         System.out.println(adt.searchBefore(date));
+        finish_time = System.currentTimeMillis();
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
         System.out.println("");
         System.out.println("");
+        
         
         //Display search result after certain date
         System.out.print("Search after certain date (yyyy/mm/dd): ");
@@ -92,9 +107,13 @@ public class SearchMain {
             System.out.print("Please re-enter the date according to the format: yyyy/mm/dd: ");
             date = scan.nextLine();
         }
+        start_time = System.currentTimeMillis();
         System.out.println(adt.searchAfter(date));
+        finish_time = System.currentTimeMillis();
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
         System.out.println("");
         System.out.println("");
+        
         
         //Display search result between certain dates
         System.out.println("Search between certain dates: ");
@@ -110,14 +129,21 @@ public class SearchMain {
             System.out.print("Please re-enter second date according to the format: yyyy/mm/dd: ");
             date2 = scan.nextLine();
         }
+        start_time = System.currentTimeMillis();
         System.out.println(adt.searchBetweenDate(date1, date2));
+        finish_time = System.currentTimeMillis();
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
         System.out.println("");
         System.out.println("");
+        
         
         //Display search result based on url
         System.out.print("Enter an url: ");
         String url = scan.nextLine();
+        start_time = System.currentTimeMillis();
         System.out.println(adt.searchByUrl(url));
+        finish_time = System.currentTimeMillis();
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
         System.out.println("");
         System.out.println("");
     }
