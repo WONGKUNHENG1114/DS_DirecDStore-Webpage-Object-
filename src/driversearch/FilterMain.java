@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//Neo Yong Jing
 package driversearch;
 import java.util.Scanner;
 
 /**
  *
- * @author Acer
+ * @author Neo Yong Jing
  */
 public class FilterMain {
     public static void main(String[] args) {
