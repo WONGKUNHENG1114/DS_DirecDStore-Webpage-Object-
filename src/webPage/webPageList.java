@@ -5,6 +5,8 @@
  */
 package webPage;
 
+import java.util.Scanner;
+
 /**
  *
  * @author A555L-HENG
@@ -38,83 +40,89 @@ public class webPageList<T extends Comparable<T>> implements LinkList<T> {
         }
 
     }
-    
+
     @Override
- public LinkList<webPage> duplicateCheck(String item) {
-    
+    public LinkList<webPage> duplicateCheck(String item) {
+        System.out.println("LinkList<webPage> searchItem(String item)");
+        double start_time,finish_time;
+        start_time = System.nanoTime();
         Node currentNode = firstNode;
-        int duplicateCheck=0;
-        LinkList<webPage> listDuplicate=new webPageList();
-        while (currentNode != null) {
-//            System.out.println(((webPage) currentNode.data).getTitle() + currentNode);
+        int duplicateCheck = 0;
+        int respond = 7;
+        LinkList<webPage> listDuplicate = new webPageList();
+        LinkList<webPage> ListsearchItem = new webPageList();
+        ListsearchItem = searchItem(item);
+        System.out.println("\n\n\n");
+        System.out.println("StoreLocation result in \"" + item + "\":-");
+        if (ListsearchItem.Size() == 0) {
+            System.out.println("no result");
+        } else {
+            if (ListsearchItem.Size() > 0) {
 
-            if (((webPage)currentNode.data).getTitle().equals(item)) {
-                listDuplicate.append((webPage)currentNode.data);
-                duplicateCheck++;
-              
+                do {
 
+                    System.out.println(ListsearchItem);
+                    finish_time = System.nanoTime();
+                    System.out.println("Total Time Taken: " + (finish_time-start_time));
+                    
+                    System.out.print("Please pick an StoreLocation to check whether duplicate data exist.");
+                    Scanner input = new Scanner(System.in);
+                    respond = Integer.parseInt(input.nextLine());
+               
+
+                } while (respond > ListsearchItem.Size());
             }
-            
-            currentNode = currentNode.next;
-            //System.out.println(currentNode);
         }
-
-       return listDuplicate;
-    }
- 
-//    private void duplicateCheck(T data) {
-//        Node currentNode = firstNode;
-//        int i = 0;
-//        while (currentNode != null) {
-//
+//        respond=3;
+        
+        start_time =0.0 ;
+        if (ListsearchItem.Size() > 0) {
+            String Data = ListsearchItem.getItem(respond-1).getTitle();
+        System.out.println("LinkList<webPage> duplicateCheck(String item)");
+        start_time=System.nanoTime();
+            while (currentNode != null) {
 //            System.out.println(((webPage) currentNode.data).getTitle() + currentNode);
-////            if(data.compareTo(currentNode.data)==0)
-//            if (((webPage) data).compare(((webPage) currentNode.data)) == 0) {
-//                System.out.println("");
-////                System.out.print("\n");
-////                System.out.println("The title found exists.Do you want to replace new record the current record");
-////                System.out.println("Current eixsts webPage title:");
-////                System.out.println("Title:"+((webPage)currentNode.data).getTitle()+"\nDescription:"+((webPage)currentNode.data).getDescription());
-////                System.out.println("New webPage title:");
-////                System.out.println("Title:"+((webPage)data).getTitle()+"\nDescription:"+((webPage)data).getDescription()+"\n");
-//                //System.out.println("To replace the record press 1 otherwise 0 to exit");
-//
-//            }
-//
-//            currentNode = currentNode.next;
-//            //System.out.println(currentNode);
-//        }
-//        System.out.print("\n");
-//
-//    }
 
-    private void sortIpAddress() {
-//        if (data.compareTo(firstNode.data) < 0) {
-//                 
-//                        newNode.next = firstNode;
-//                        firstNode = newNode;
-//                               
-//
-//                    } else {
-//                        Node currentNode = firstNode;
-//                        Node previousNode = null;
-//                        while (currentNode != null && data.compareTo(currentNode.data) > 0) {
-//                            
-//                            previousNode = currentNode;
-//                            if (currentNode.next == null) {
-//                                lastNode = newNode;
-//                            }
-//                            currentNode = currentNode.next;
-//                        }
-//                        previousNode.next = newNode;
-//                        newNode.next = currentNode;
-//                    }
+                if (((webPage) currentNode.data).getTitle().equals(Data)) {
+                    listDuplicate.append((webPage) currentNode.data);
+                    duplicateCheck++;
+
+                }
+
+                currentNode = currentNode.next;
+                //System.out.println(currentNode);
+            }
+        }
+         finish_time = System.nanoTime();
+         System.out.println("Total Time Taken: " + (finish_time-start_time));
+        return listDuplicate;
+    }
+
+    private LinkList<webPage> searchItem(String item) {
+       
+       
+        //System.out.print("Enter a keyword to search: ");
+
+        
+        Node currentNode = firstNode;
+        LinkList<webPage> ListSearch = new webPageList();
+        
+        while (currentNode != null) {
+
+            String getLowerCase = ((webPage) currentNode.data).getTitle().toLowerCase();
+            item = item.toLowerCase();
+            if (getLowerCase.contains(item)) {
+                ListSearch.append((webPage) currentNode.data);
+            }
+            currentNode = currentNode.next;
+        }
+        
+        return ListSearch;
     }
 
     @Override
     public void insert(T data) {
         Node newNode = new Node(data);
-        Node temp = new Node();
         if (isEmpty()) {
             firstNode = newNode;
             lastNode = newNode;
@@ -123,7 +131,7 @@ public class webPageList<T extends Comparable<T>> implements LinkList<T> {
             firstNode = newNode;
         }
         size++;
-        temp = null;
+        
     }
 
     @Override
@@ -180,6 +188,8 @@ public class webPageList<T extends Comparable<T>> implements LinkList<T> {
 
     @Override
     public T getItem(int i) {
+        System.out.println("getItem(int i)");
+         double start_time,finish_time;
         T item = null;
         Node currentNode;
         try {
@@ -192,10 +202,13 @@ public class webPageList<T extends Comparable<T>> implements LinkList<T> {
                 } else {
                     int j = 0;
                     currentNode = firstNode;
+                    start_time = System.nanoTime();
                     while (j != i) {
                         currentNode = currentNode.next;
                         j++;
                     }
+                     finish_time = System.nanoTime();
+                    System.out.println("Total Time Taken: " + (finish_time-start_time));
                     item = currentNode.data;
                     currentNode = null;
                 }
@@ -214,27 +227,30 @@ public class webPageList<T extends Comparable<T>> implements LinkList<T> {
 
     @Override
     public T removeSelectedItem(int selectionPageID) {
+        System.out.println("removeSelectedItem(int selectionPageID)");
+         double start_time,finish_time;
         T item = null;
         Node currentNode = firstNode;
-        Node previousNode=null;
-                while (currentNode != lastNode && selectionPageID-1<=size) {
-                    
-//                    System.out.println(((webPage)currentNode.data).comparePageID(selectionPageID));
-                    if(((webPage)currentNode.data).comparePageID(selectionPageID))
-                    {
-                        item=currentNode.data;
-                        System.out.println("\nDeleted data\n"+(webPage)currentNode.data+"\n");
-                        previousNode.next=currentNode.next;
-                        break;
-                    }
-                    previousNode=currentNode;
-                    currentNode = currentNode.next;
-                    
-                }  
+        Node previousNode = null;
+         start_time = System.nanoTime();
+        while (currentNode != lastNode && selectionPageID - 1 <= size) {
 
+//                    System.out.println(((webPage)currentNode.data).comparePageID(selectionPageID));
+            if (((webPage) currentNode.data).comparePageID(selectionPageID)) {
+                item = currentNode.data;
+                System.out.println("\nDeleted data\n" + (webPage) currentNode.data + "\n");
+                previousNode.next = currentNode.next;
+                break;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+
+        }
+            finish_time = System.nanoTime();
+            System.out.println("Total Time Taken: " + (finish_time-start_time));
         currentNode = null;
         size--;
-        return item; 
+        return item;
     }
 
     @Override

@@ -66,6 +66,7 @@ public interface LinkList<T> {
     Postcondition:none
     Return:return duplicate item if true , return nothing if false;
     */
+    
     @Override
    String toString();
     int Size();
