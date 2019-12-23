@@ -86,50 +86,55 @@ public class AlgorithmTreeSearch {
         System.out.println();
         
          //Search for the webpages
-        double start_time,finish_time;
+        long start_time,finish_time;
+        String keyword;
         System.out.print("Search for Webpages\n================================\n");
         do {
             System.out.print("Enter the website which you want to looking for: ");
-            String keyword = input.nextLine();
-            start_time = System.currentTimeMillis();
-            System.out.println("\nLooking for this website: " + BST1.contains(keyword));
-            
+            keyword = input.nextLine();
+                 
             System.out.print("Key in anymore?(Y/N): ");
             anymore = input.next().charAt(0);
             input.nextLine();
 
         } while (anymore == 'y' || anymore == 'Y');
-        finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");        
-        System.out.println();
-        System.out.println();
-        System.out.println();
         
+        start_time = System.nanoTime();
+        System.out.println("\nLooking for this website: " + BST1.contains(keyword));
+        finish_time = System.nanoTime();
         
+        System.out.println("Total Time Taken: " + (finish_time - start_time)  + " nano seconds");        
+        System.out.println();
+        System.out.println();
+               
         //Add the data to the tree
-        double start_time2,finish_time2;    
+        String webpage,ipaddress,protocol;
+        long start_time2,finish_time2;    
         do {
             System.out.print("Enter the webpage URL: ");
-            String webpage = input.nextLine();
+            webpage = input.nextLine();
+            
             System.out.print("Enter the webpage of IP address: ");
-            String ipaddress = input.nextLine();
+            ipaddress = input.nextLine();
             
             System.out.print("Enter the protocol for webpage: ");
-            String protocol = input.nextLine().toUpperCase();
-            start_time2 = System.currentTimeMillis();
-            SearchEngineClass s1 = new SearchEngineClass(webpage,ipaddress,protocol);
-            BST1.add(s1);
-            System.out.println(s1);
-            
+            protocol = input.nextLine().toUpperCase();
+
             System.out.print("Key in anymore?(Y/N): ");
             anymore = input.next().charAt(0);
             input.nextLine();
             
         } while (anymore == 'y' || anymore == 'Y');
         System.out.println();
-        finish_time2 = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time2 - start_time2)/ 1000  + " seconds");
-        System.out.println("Total Overall Time: " + ((double)(double)(finish_time - start_time)/ 1000 + (double)(finish_time2 - start_time2)/ 1000)  + " seconds");
+        
+        start_time2 = System.nanoTime();
+        SearchEngineClass s1 = new SearchEngineClass(webpage,ipaddress,protocol);
+        BST1.add(s1);
+        System.out.println(s1);
+        finish_time2 = System.nanoTime();
+        
+        System.out.println("Total Time Taken: " + (finish_time2 - start_time2)  + " nano seconds");
+        System.out.println("Total Overall Time: " + ((finish_time - start_time) + (finish_time2 - start_time2))  + " nano seconds");
 
     }
 
