@@ -1,7 +1,9 @@
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -21,7 +23,7 @@ public class searchEngineMain {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) throws UnknownHostException, MalformedURLException, IOException {
         // TODO code application logic here
         String choice,ipAddress;
         int Protocol;
@@ -33,19 +35,27 @@ public class searchEngineMain {
         do{
             System.out.println("Enter URL : ");
             String url = scan.next();
-            System.out.println("Enter Title : ");
-            String title = scan.next();
-            try {
-                InetAddress ip = InetAddress.getByName(new URL("https://" + url).getHost());
-                ipAddress = ip.toString();
-                urlProtocol = new URL("https://" + url); 
-                String URLProtocol = urlProtocol.getProtocol();
-                webPage s1 = new webPage(url,title,ipAddress.replaceAll(url + "/",""),URLProtocol);
-                System.out.println(s1.getPortal());
-                glist.add(s1);
+            try{
+                URL urlverify = new URL("https://" + url);
+                URLConnection connection = urlverify.openConnection();
+                connection.connect();
+                System.out.println("Enter Title : ");
+                String title = scan.next();
+                try {
+                    InetAddress ip = InetAddress.getByName(new URL("https://" + url).getHost());
+                    ipAddress = ip.toString();
+                    urlProtocol = new URL("https://" + url); 
+                    String URLProtocol = urlProtocol.getProtocol();
+                    webPage s1 = new webPage(url,title,ipAddress.replaceAll(url + "/",""),URLProtocol);
+                    glist.add(s1);
             } catch (MalformedURLException ex) {
                 Logger.getLogger(webPage.class.getName()).log(Level.SEVERE, null, ex);
             }
+            }catch (MalformedURLException e) {
+                System.out.println("Internet is not connected");
+             } catch (IOException e) {
+                System.out.println("Internet is not connected");
+             }
             System.out.println("Do you to continue? ");
             choice = scan.next();
         }while(choice.equalsIgnoreCase("Y"));
