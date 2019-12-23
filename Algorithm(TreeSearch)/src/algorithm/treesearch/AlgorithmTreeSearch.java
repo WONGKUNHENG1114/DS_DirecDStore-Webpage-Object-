@@ -92,19 +92,20 @@ public class AlgorithmTreeSearch {
         do {
             System.out.print("Enter the website which you want to looking for: ");
             keyword = input.nextLine();
-                 
+            
+            start_time = System.nanoTime();
+            System.out.println("\nLooking for this website: " + BST1.contains(keyword));
+            finish_time = System.nanoTime();
+            System.out.println("Total Time Taken: " + (finish_time - start_time)  + " nanoseconds"); 
+             
+        
             System.out.print("Key in anymore?(Y/N): ");
             anymore = input.next().charAt(0);
             input.nextLine();
+            System.out.println();
 
         } while (anymore == 'y' || anymore == 'Y');
-        
-        start_time = System.nanoTime();
-        System.out.println("\nLooking for this website: " + BST1.contains(keyword));
-        finish_time = System.nanoTime();
-        
-        System.out.println("Total Time Taken: " + (finish_time - start_time)  + " nano seconds");        
-        System.out.println();
+                  
         System.out.println();
                
         //Add the data to the tree
@@ -120,21 +121,23 @@ public class AlgorithmTreeSearch {
             System.out.print("Enter the protocol for webpage: ");
             protocol = input.nextLine().toUpperCase();
 
+            start_time2 = System.nanoTime();
+            SearchEngineClass s1 = new SearchEngineClass(webpage,ipaddress,protocol);
+            BST1.add(s1);
+            System.out.println(s1);
+            finish_time2 = System.nanoTime();
+        
+            System.out.println("Total Time Taken: " + (finish_time2 - start_time2)  + " nanoseconds");
+
+
             System.out.print("Key in anymore?(Y/N): ");
             anymore = input.next().charAt(0);
             input.nextLine();
             
         } while (anymore == 'y' || anymore == 'Y');
-        System.out.println();
-        
-        start_time2 = System.nanoTime();
-        SearchEngineClass s1 = new SearchEngineClass(webpage,ipaddress,protocol);
-        BST1.add(s1);
-        System.out.println(s1);
-        finish_time2 = System.nanoTime();
-        
-        System.out.println("Total Time Taken: " + (finish_time2 - start_time2)  + " nano seconds");
-        System.out.println("Total Overall Time: " + ((finish_time - start_time) + (finish_time2 - start_time2))  + " nano seconds");
+        System.out.println();       
+
+        System.out.println("Total Overall Time: " + ((finish_time - start_time) + (finish_time2 - start_time2))  + " nanoseconds");
 
     }
 
