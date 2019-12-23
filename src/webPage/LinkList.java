@@ -52,6 +52,20 @@ public interface LinkList<T> {
     Postcondition:clear all the item in the list
     Return:return the list
     */
+    T removeSelectedItem(int selection);
+     /*removeAt
+    Description:to delete selected items from the list
+    Precondition:check the selection whether is valid or not
+    Postcondition:remove a selected duplicate item
+    Return:return the remove item
+    */
+    LinkList<webPage> duplicateCheck(String item);
+       /*duplicateCheck
+    Description:To determine the duplicate item
+    Precondition:check there is any duplicate item
+    Postcondition:none
+    Return:return duplicate item if true , return nothing if false;
+    */
     @Override
    String toString();
     int Size();

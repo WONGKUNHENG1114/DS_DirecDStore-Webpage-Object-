@@ -1,5 +1,7 @@
 package webPage;
 
+import java.util.Random;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +15,8 @@ package webPage;
 public class webPage implements Comparable<webPage>{
     private String url,title,ipAddress;
     private int protal;
+    private static int pageID;
+    private int uniquePageID;
     private String description;
     private boolean isBookMark;
     private static int visitTime;
@@ -28,13 +32,21 @@ public class webPage implements Comparable<webPage>{
     }
     
     //KUNHENG CONSTRUCTOR
- public webPage(String url, String title,String ipAddress,String description){
-        
-        this.url = url;
-        this.ipAddress = ipAddress;
+ public webPage(String title,String ipAddress,String description,boolean bookMarkStatus){
+        setUniquePageID();
+        this.url ="https://www."+"title=%"+ title+"000"+pageID+".com";
+        this.ipAddress =ipAddress;
+//        this.ipAddress =getIpAddress();
         this.title = title;
-        isBookMark=false;
+        this.isBookMark=bookMarkStatus;
         this.description=description;
+    }
+
+    public void setUniquePageID() {
+         uniquePageID=++pageID;
+    }
+    public int getUniquePageID() {
+        return uniquePageID;
     }
 
     public String getUrl() {
@@ -46,13 +58,23 @@ public class webPage implements Comparable<webPage>{
     }
 
     public String getIpAddress() {
-        return ipAddress;
+        Random r = new Random();
+        return r.nextInt(223) + "." + r.nextInt(256) + "." + r.nextInt(256) + "." + r.nextInt(256);
     }
 
     public int getProtal() {
         return protal;
     }
-    
+
+    public int getPageID() {
+        return pageID;
+    }
+
+    public static int getVisitTime() {
+        return visitTime;
+    }
+
+  
     
     // KUN HENG METHOD
     public String getDescription() {
@@ -67,15 +89,25 @@ public class webPage implements Comparable<webPage>{
         this.isBookMark =true;
     }
 
-    @Override
-    public int compareTo(webPage page) {
-       return this.ipAddress.compareTo(page.ipAddress);
+    public boolean comparePageID(int pageID)
+    {
+        return this.uniquePageID==pageID;
     }
     
+    @Override
+    public int compareTo(webPage page) {
+       return this.title.compareTo(page.title);
+    }
+     public int compare(webPage page)
+     {
+         return this.title.compareTo(page.title);
+     }
+   
     
     public String toString()
     {
         return  "ipAddress:"+ipAddress+"\n"
-                +"Title:"+ title +"\n";
+                +"Title:"+ title +"\n"
+                +"PageID:"+uniquePageID;
     }
 }
