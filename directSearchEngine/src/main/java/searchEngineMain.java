@@ -62,18 +62,15 @@ public class searchEngineMain {
         System.out.println("Do your wanted to sorting according ");
         System.out.println("1. Accoding ");
         System.out.println("2. Exit ");
-        int selection = scan.nextInt();
+        String selection = scan.next();
         switch(selection){
-            case 1:
-                for(int i = 0; i < glist.Size(); i++){
-                   System.out.println(glist.getItem(i).getCode());
-                   System.out.println(glist.getItem(i).getTitle());
-                }
+            case "1":
+                System.out.println(glist + "\n");
                 break;
-            case 2:
+            case "2":
+                break;
         }
         //System.out.println(webPage.getItem(index).toString());
-        System.out.println(glist + "\n");
         long stopTime = System.currentTimeMillis();
         System.out.println("Elasped Time: " + (stopTime - startTime) + " msecs.");
         
