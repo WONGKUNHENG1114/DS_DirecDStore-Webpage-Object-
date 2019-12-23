@@ -56,7 +56,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchInclusion(keywordInclude));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
         System.out.println();
         System.out.println();
         
@@ -66,7 +66,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchExclusion(keywordExclude));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
         System.out.println("");
         System.out.println("");
         
@@ -81,7 +81,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchCertainDate(date));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
         System.out.println("");
         System.out.println("");
         
@@ -96,7 +96,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchBefore(date));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
         System.out.println("");
         System.out.println("");
         
@@ -111,7 +111,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchAfter(date));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
         System.out.println("");
         System.out.println("");
         
@@ -133,7 +133,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchBetweenDate(date1, date2));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
         System.out.println("");
         System.out.println("");
         
@@ -144,7 +144,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchByUrl(url));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)/ 1000  + " seconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
         System.out.println("");
         System.out.println("");
     }
