@@ -88,16 +88,16 @@ public class HashedDictionary<K, V> implements DictionaryADT<K, V>, Serializable
 
   
   public V getValue(K key) {
-    V result = null;
+    V res = null;
 
     int index = getHashIndex(key);
     index = locate(index, key);
 
     if (index != -1) {
-      result = hashTable[index].getValue(); 
+      res = hashTable[index].getValue(); 
     }
 
-    return result;
+    return res;
   } 
 
   
@@ -171,9 +171,8 @@ public class HashedDictionary<K, V> implements DictionaryADT<K, V>, Serializable
     for (int index = 0; index < hashTable.length; index++) {
       hashTable[index] = null;
     }
-
-    noOfEntries = 0;
     spaceOccupied = 0;
+    noOfEntries = 0;
   } 
 
   private int getHashIndex(K key) {

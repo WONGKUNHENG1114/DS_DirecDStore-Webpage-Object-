@@ -27,8 +27,9 @@ public class IndexingSearch {
         System.out.println("-----------------------------------------------------------------------");
         System.out.println("testHashTable():");
 
-        System.out.println("Create a dictionary whose initial hash table has 23 locations:\n");
-        System.out.println("Initial dictionary should be empty; isEmpty() returns " + webPageList.isEmpty());
+        System.out.println("Create a dictionary which the initial hash table contains 23 locations:\n");
+        System.out.println("At first, the dictionary should be empty; "
+                + "\nisEmpty() "+ "returns " + webPageList.isEmpty());
 
         System.out.println("\n\nTesting add() - add 10 webpages:\n");
         webPageList.add(new webPage("www.xiaomi.com"), "100.100.10.16");
@@ -42,8 +43,9 @@ public class IndexingSearch {
         webPageList.add(new webPage("www.amazon.com"), "144.144.144.144");
         webPageList.add(new webPage("www.meizu.com"), "155.155.155.155");
 
-        System.out.println("Dictionary should not be full; isFull() returns " + webPageList.isFull() + "\n");
-        System.out.println("Dictionary contains " + webPageList.getSize() + " , as follows:\n");
+        System.out.println("Dictionary should not be full; "
+                + "\nisFull() returns " + webPageList.isFull() + "\n");
+        System.out.println("Dictionary contains " + webPageList.getSize() + " records , as follows:\n");
         System.out.println(webPageList);
 
         System.out.println("\nThe hash table is:\n");
@@ -91,23 +93,24 @@ public class IndexingSearch {
         String keyword2;
         long startTime, finishTime;
         do {
-            System.out.println("Enter search object: ");
+            System.out.println("Enter web page url: ");
             keyword1 = input.nextLine();
 
             System.out.println("Enter model name, leave blank if none: ");
             keyword2 = input.nextLine();
-
+            startTime = System.nanoTime();
+            if (webPageList.contains(new webPage(keyword1.toLowerCase(), keyword2.toUpperCase()))) {
+            System.out.println(keyword1 + " is in the dictionary");
+            }
+            finishTime = System.nanoTime();
+            System.out.println("Total time taken: " + (finishTime - startTime) + " nanoseconds");
             System.out.print("Key in anymore?(Y/N): ");
             status = input.next().charAt(0);
             input.nextLine();
 
         } while (status == 'y' || status == 'Y');
-        startTime = System.nanoTime();
-        if (webPageList.contains(new webPage(keyword1.toLowerCase(), keyword2.toUpperCase()))) {
-            System.out.println(keyword1 + " is in the dictionary");
-        }
-        finishTime = System.nanoTime();
-        System.out.println("Total time taken: " + (finishTime - startTime) + " nanoseconds");
+        
+        
 
     }
 }
