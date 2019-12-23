@@ -26,14 +26,14 @@ public class FilterMain {
         webPage wp10 = new webPage("Brush or Pen","www.b/p.com","10","2019/10/01");
         webPage wp11 = new webPage("Bag and Pouch","www.b&p.com","10","2019/11/01");
         webPage wp12 = new webPage("Bag or Pouch","www.b/p.com","10","2019/12/01");
-        webPage wp13 = new webPage("Dog and Cat","www.b/p.com","10","2019/12/01");
-        webPage wp14 = new webPage("Dog or Cat","www.b/p.com","10","2019/12/01");
-        webPage wp15 = new webPage("Ali and Emy","www.b/p.com","10","2019/12/01");
-        webPage wp16 = new webPage("Ali or Emy","www.b/p.com","10","2019/12/01");
-        webPage wp17 = new webPage("Red and Blue","www.b/p.com","10","2019/12/01");
-        webPage wp18 = new webPage("Red or Blue","www.b/p.com","10","2019/12/01");
-        webPage wp19 = new webPage("Hot and Cool","www.b/p.com","10","2019/12/01");
-        webPage wp20 = new webPage("Cool or Hot","www.b/p.com","10","2019/12/01");
+        webPage wp13 = new webPage("Dog and Cat","www.b/p.com","10","2018/12/01");
+        webPage wp14 = new webPage("Dog or Cat","www.b/p.com","10","2018/11/01");
+        webPage wp15 = new webPage("Ali and Emy","www.b/p.com","10","2018/10/01");
+        webPage wp16 = new webPage("Ali or Emy","www.b/p.com","10","2018/09/01");
+        webPage wp17 = new webPage("Red and Blue","www.b/p.com","10","2018/08/01");
+        webPage wp18 = new webPage("Red or Blue","www.b/p.com","10","2018/07/01");
+        webPage wp19 = new webPage("Hot and Cool","www.b/p.com","10","2018/06/01");
+        webPage wp20 = new webPage("Cool or Hot","www.b/p.com","10","2018/05/01");
         
         //Put webPage into List
         FilterADT<webPage> adt = new Filter();
