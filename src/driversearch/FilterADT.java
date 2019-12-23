@@ -70,7 +70,7 @@ public interface FilterADT<webPage>{
     public String searchBetweenDate(String date1, String date2);
     /*
     description: to search the webpage between certain dates
-    precondition: date is not null and matches the format
+    precondition: dates is not null and matches the format
     postcondition: found webpages between certain dates
     return: all webpages between certain dates
     */
@@ -80,6 +80,6 @@ public interface FilterADT<webPage>{
     description: to search the webpage by url
     precondition: url is not null
     postcondition: found webpage with url
-    return: webpage with that url
+    return: webpage with that particular url
     */
 }
