@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//Neo Yong Jing
 package driversearch;
 
 /**
  *
- * @author Acer
+ * @author Neo Yong Jing
  * @param <T>
  */
 public class Filter<T extends Comparable<webPage>> implements FilterADT<webPage> {
@@ -154,7 +153,7 @@ public class Filter<T extends Comparable<webPage>> implements FilterADT<webPage>
         clear();
         for(webPage wp:array){
             if(wp != null){
-                if(url == wp.getUrl()){
+                if(wp.getUrl().equals(url)){
                     if(isFull(result, index)){
                         result = expandArray(result);
                     }
