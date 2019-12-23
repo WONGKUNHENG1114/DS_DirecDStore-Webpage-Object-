@@ -26,6 +26,14 @@ public class FilterMain {
         webPage wp10 = new webPage("Brush or Pen","www.b/p.com","10","2019/10/01");
         webPage wp11 = new webPage("Bag and Pouch","www.b&p.com","10","2019/11/01");
         webPage wp12 = new webPage("Bag or Pouch","www.b/p.com","10","2019/12/01");
+        webPage wp13 = new webPage("Dog and Cat","www.b/p.com","10","2019/12/01");
+        webPage wp14 = new webPage("Dog or Cat","www.b/p.com","10","2019/12/01");
+        webPage wp15 = new webPage("Ali and Emy","www.b/p.com","10","2019/12/01");
+        webPage wp16 = new webPage("Ali or Emy","www.b/p.com","10","2019/12/01");
+        webPage wp17 = new webPage("Red and Blue","www.b/p.com","10","2019/12/01");
+        webPage wp18 = new webPage("Red or Blue","www.b/p.com","10","2019/12/01");
+        webPage wp19 = new webPage("Hot and Cool","www.b/p.com","10","2019/12/01");
+        webPage wp20 = new webPage("Cool or Hot","www.b/p.com","10","2019/12/01");
         
         //Put webPage into List
         FilterADT<webPage> adt = new Filter();
@@ -41,6 +49,14 @@ public class FilterMain {
         adt.add(wp10);
         adt.add(wp11);
         adt.add(wp12);
+        adt.add(wp13);
+        adt.add(wp14);
+        adt.add(wp15);
+        adt.add(wp16);
+        adt.add(wp17);
+        adt.add(wp18);
+        adt.add(wp19);
+        adt.add(wp20);
         
         Scanner scan = new Scanner(System.in);
         
@@ -55,7 +71,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchInclusion(keywordInclude));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)*1000  + " nanoseconds");
         System.out.println();
         System.out.println();
         
@@ -65,7 +81,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchExclusion(keywordExclude));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)*1000  + " nanoseconds");
         System.out.println("");
         System.out.println("");
         
@@ -80,7 +96,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchCertainDate(date));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)*1000  + " nanoseconds");
         System.out.println("");
         System.out.println("");
         
@@ -95,7 +111,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchBefore(date));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)*1000  + " nanoseconds");
         System.out.println("");
         System.out.println("");
         
@@ -110,7 +126,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchAfter(date));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)*1000  + " nanoseconds");
         System.out.println("");
         System.out.println("");
         
@@ -132,7 +148,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchBetweenDate(date1, date2));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)*1000  + " nanoseconds");
         System.out.println("");
         System.out.println("");
         
@@ -143,7 +159,7 @@ public class FilterMain {
         start_time = System.currentTimeMillis();
         System.out.println(adt.searchByUrl(url));
         finish_time = System.currentTimeMillis();
-        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)  + " milliseconds");
+        System.out.println("Total Time Taken: " + (double)(finish_time - start_time)*1000  + " nanoseconds");
         System.out.println("");
         System.out.println("");
     }
