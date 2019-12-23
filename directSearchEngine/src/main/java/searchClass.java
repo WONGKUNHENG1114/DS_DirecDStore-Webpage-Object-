@@ -45,19 +45,18 @@ public class searchClass<T extends Comparable<T>> implements searchEngineADT<T> 
     public String search(String code){
         Node current = firstNode;
         while (current != null) {
-        if(current.data instanceof searchEngineClass){
-            searchEngineClass g = (searchEngineClass)current.data;
+        if(current.data instanceof webPage){
+            webPage g = (webPage)current.data;
             
-            if(g.getCode().equals(code))
-                return g.getCode();
+            if(g.getURL().equals(code))
+                return g.getURL();
             }
             current = current.next;
         }
-        return "Game Not Found";
+        return "URL Not Found";
     }
     
     public T getItem(int i) {
-        
         T item = null;
         try {
             if (!isEmpty() && i >= 0 && i <= size) {

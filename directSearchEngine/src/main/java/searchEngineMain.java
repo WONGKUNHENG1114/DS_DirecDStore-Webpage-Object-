@@ -29,7 +29,7 @@ public class searchEngineMain {
         int Protocol;
         URL urlProtocol = null; 
         // TODO code application logic here
-        searchEngineADT<webPage> glist = new searchClass();
+        searchEngineADT<webPage> weblist = new searchClass();
         Scanner scan = new Scanner(System.in);
         long startTime = System.currentTimeMillis();
         do{
@@ -47,7 +47,7 @@ public class searchEngineMain {
                     urlProtocol = new URL("https://" + url); 
                     String URLProtocol = urlProtocol.getProtocol();
                     webPage s1 = new webPage(url,title,ipAddress.replaceAll(url + "/",""),URLProtocol);
-                    glist.add(s1);
+                    weblist.add(s1);
             } catch (MalformedURLException ex) {
                 Logger.getLogger(webPage.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -65,7 +65,7 @@ public class searchEngineMain {
         String selection = scan.next();
         switch(selection){
             case "1":
-                System.out.println(glist + "\n");
+                System.out.println(weblist + "\n");
                 break;
             case "2":
                 break;
