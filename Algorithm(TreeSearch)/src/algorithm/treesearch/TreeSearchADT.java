@@ -8,7 +8,7 @@ package algorithm.treesearch;
 
 /**
  *
- * @author Chris KMK
+ * @author KOK MEN KIT
  */
 public interface TreeSearchADT<T> {
     public T add(T value); 

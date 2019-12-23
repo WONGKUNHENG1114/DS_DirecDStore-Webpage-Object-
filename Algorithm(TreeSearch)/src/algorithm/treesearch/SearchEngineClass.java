@@ -7,7 +7,7 @@ package algorithm.treesearch;
 
 /**
  *
- * @author Chris KMK
+ * @author KOK MEN KIT
  */
 public class SearchEngineClass implements Comparable<SearchEngineClass>{
     private String URL, IpAddress, Protocol;

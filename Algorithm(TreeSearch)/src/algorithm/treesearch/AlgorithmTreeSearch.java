@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Chris KMK
+ * @author KOK MEN KIT
  */
 public class AlgorithmTreeSearch {
 

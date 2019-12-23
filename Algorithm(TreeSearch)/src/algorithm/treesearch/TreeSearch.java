@@ -7,7 +7,7 @@ package algorithm.treesearch;
 
 /**
  *
- * @author Chris KMK
+ * @author KOK MEN KIT
  */
 public class TreeSearch<T extends Comparable> implements TreeSearchADT<T> {
     private Node root;
