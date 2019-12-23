@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//Neo Yong Jing
 package driversearch;
 
 /**
  *
- * @author Acer
+ * @author Neo Yong Jing
  */
 public interface FilterADT<webPage>{
     public void add(webPage wp);
